@@ -17,9 +17,15 @@ import SocketIO
 
 class ViewController: UIViewController {
 
+    @IBOutlet var wpTitle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        wpTitle.center.x = view.center.x
+        wpTitle.center.y = view.center.y * 0.25
+        
     }
 
     override func didReceiveMemoryWarning() {
