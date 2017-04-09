@@ -13,7 +13,6 @@ import FirebaseAuth
 import FacebookCore
 import FacebookLogin
 import FacebookShare
-import SocketIO
 
 class ViewController: UIViewController {
 
@@ -61,6 +60,7 @@ class ViewController: UIViewController {
                 print (people[0].value(forKey: "username"), people[0].value(forKey: "password"))
                 return true
             } else {
+                print (people.count)
                 return false
             }
         } catch let error as NSError {
@@ -84,7 +84,6 @@ class ViewController: UIViewController {
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     // ...
                     if let error = error {
-                        // ...
                         print("error 2")
                     }
                 }

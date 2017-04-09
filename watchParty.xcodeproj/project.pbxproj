@@ -16,6 +16,7 @@
 		0C1EC6501E9A96340002F3D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C1EC64F1E9A96340002F3D0 /* GoogleService-Info.plist */; };
 		0C1EC6521E9AA0BD0002F3D0 /* emailLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1EC6511E9AA0BD0002F3D0 /* emailLogin.swift */; };
 		0C1EC6541E9AA0DF0002F3D0 /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1EC6531E9AA0DF0002F3D0 /* mainView.swift */; };
+		0C1EC6561E9AC0A40002F3D0 /* emailSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1EC6551E9AC0A40002F3D0 /* emailSignUp.swift */; };
 		82D19C8019ABC7407B18F02E /* Pods_watchParty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42655EEC83821095FC2DF1F4 /* Pods_watchParty.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		0C1EC64F1E9A96340002F3D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0C1EC6511E9AA0BD0002F3D0 /* emailLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emailLogin.swift; sourceTree = "<group>"; };
 		0C1EC6531E9AA0DF0002F3D0 /* mainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
+		0C1EC6551E9AC0A40002F3D0 /* emailSignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emailSignUp.swift; sourceTree = "<group>"; };
 		3B38D5751504C4B72B4996FD /* Pods-watchParty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watchParty.debug.xcconfig"; path = "Pods/Target Support Files/Pods-watchParty/Pods-watchParty.debug.xcconfig"; sourceTree = "<group>"; };
 		42655EEC83821095FC2DF1F4 /* Pods_watchParty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_watchParty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCD099C1333EEEDB1CDD244E /* Pods-watchParty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watchParty.release.xcconfig"; path = "Pods/Target Support Files/Pods-watchParty/Pods-watchParty.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				0C1EC63A1E9A946C0002F3D0 /* AppDelegate.swift */,
 				0C1EC63C1E9A946C0002F3D0 /* initialScreen.swift */,
 				0C1EC63E1E9A946C0002F3D0 /* Main.storyboard */,
+				0C1EC6551E9AC0A40002F3D0 /* emailSignUp.swift */,
 				0C1EC6511E9AA0BD0002F3D0 /* emailLogin.swift */,
 				0C1EC6531E9AA0DF0002F3D0 /* mainView.swift */,
 				0C1EC6441E9A946C0002F3D0 /* Assets.xcassets */,
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1EC6561E9AC0A40002F3D0 /* emailSignUp.swift in Sources */,
 				0C1EC6521E9AA0BD0002F3D0 /* emailLogin.swift in Sources */,
 				0C1EC63D1E9A946C0002F3D0 /* initialScreen.swift in Sources */,
 				0C1EC63B1E9A946C0002F3D0 /* AppDelegate.swift in Sources */,

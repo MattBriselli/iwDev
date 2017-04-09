@@ -6,8 +6,11 @@
 //  Copyright © 2017 Matt Briselli. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import CoreData
+import Firebase
+import FirebaseAuth
 
 class emailLogin: UIViewController {
     
@@ -20,10 +23,47 @@ class emailLogin: UIViewController {
         super.viewDidLoad()
         
     }
+
     @IBAction func emailLogin(_ sender: Any) {
+        
+        if self.email.text == "" || self.pword.text == "" {
+            
+            let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+            
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+        } else {
+            
+            FIRAuth.auth()?.createUser(withEmail: self.email.text!, password: self.pword.text!) { (user, error) in
+                
+                if error == nil {
+                    
+                    //Print into the console if successfully logged in
+                    print("You have successfully logged in")
+                    
+                    self.storeUser()
+                    
+                } else {
+                    
+                    //Tells the user that there is an error and then gets firebase to tell them the error
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
+    func storeUser() {
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
-            return
+                return
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -31,9 +71,10 @@ class emailLogin: UIViewController {
         let person = NSManagedObject(entity: entity,
                                      insertInto: managedContext)
         
-        person.setValue(email.text, forKeyPath: "username")
-        person.setValue(pword.text, forKeyPath: "password")
-        
+        person.setValue(self.email.text, forKeyPath: "username")
+        person.setValue(self.pword.text, forKeyPath: "password")
+        person.setValue("email", forKeyPath: "method")
+    
         do {
             try managedContext.save()
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
