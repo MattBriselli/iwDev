@@ -24,8 +24,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         FIRApp.configure()
         
+        if let accessToken = AccessToken.current {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
+            self.present(mainViewController, animated:true, completion:nil)
+        }
+        
         if (loggedIn()) {
-            
+
         } else {
             stylings()
         }
@@ -33,22 +39,22 @@ class ViewController: UIViewController {
     }
     
     func loggedIn() -> Bool {
+        
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
+                print("error")
                 return false
         }
         
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Person")
         
         do {
             let people = try managedContext.fetch(fetchRequest)
-            if (people.count != 0) {
-                print (people[0].value(forKey: "username"), people[0].value(forKey: "password"))
+            print(people.count)
+            if (people.count == 0) {
                 return true
             } else {
-                print (people.count)
                 return false
             }
         } catch let error as NSError {
@@ -58,7 +64,7 @@ class ViewController: UIViewController {
     }
     
 
-    @IBAction func loginButtonClickedFB(_ sender: UIButton) {
+    @IBAction func FBLogin(_ sender: Any) {
         let loginManager = LoginManager()
         loginManager.loginBehavior = LoginBehavior.systemAccount
         loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
@@ -70,7 +76,6 @@ class ViewController: UIViewController {
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-                    // ...
                     if let error = error {
                         print("error 2")
                     }
@@ -78,9 +83,11 @@ class ViewController: UIViewController {
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
                 self.present(mainViewController, animated:true, completion:nil)
+                
             }
         }
     }
+    
     
     func stylings() {
         wpTitle.center.x = view.center.x
