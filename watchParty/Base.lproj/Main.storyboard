@@ -28,16 +28,93 @@
                                 <color key="textColor" red="0.080562569200992584" green="0.11210522800683975" blue="0.33247983455657959" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27j-Ey-xof">
+                                <rect key="frame" x="74" y="183" width="234" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Log In with Email"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnQ-RX-B4j">
+                                <rect key="frame" x="74" y="229" width="234" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Log In with Facebook"/>
+                                <connections>
+                                    <action selector="loginButtonClickedFB:" destination="BYZ-38-t0r" eventType="touchUpInside" id="StK-kF-MVJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jG-75-vIt">
+                                <rect key="frame" x="74" y="284" width="234" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Sign Up with Email"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.71741145849227905" green="0.90220195055007935" blue="0.93740695714950562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="emailLogin" destination="27j-Ey-xof" id="ql3-DZ-HFm"/>
+                        <outlet property="emailSignUp" destination="9jG-75-vIt" id="Feh-ls-uGJ"/>
+                        <outlet property="fbLogin" destination="xnQ-RX-B4j" id="INz-Qg-htC"/>
                         <outlet property="wpTitle" destination="2cw-4Q-PBy" id="iEN-Bn-wg5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+        <!--emailLogin-->
+        <scene sceneID="g5j-mY-SEh">
+            <objects>
+                <viewController storyboardIdentifier="emailLogin" title="emailLogin" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qyh-m7-Eqb" customClass="emailLogin" customModule="watchParty" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q5x-Gb-cTk"/>
+                        <viewControllerLayoutGuide type="bottom" id="DXj-tY-G3m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Enj-Iw-VMn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Watch Party" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBQ-4S-oFZ">
+                                <rect key="frame" x="64" y="56" width="246" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.080562569200992584" green="0.11210522800683975" blue="0.33247983455657959" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqQ-fc-hHe">
+                                <rect key="frame" x="22" y="7" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71741145849227905" green="0.90220195055007935" blue="0.93740695714950562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="watchParty" destination="rBQ-4S-oFZ" id="m4a-TC-QpH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cTV-h9-81M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1253.5999999999999" y="-319.79010494752629"/>
+        </scene>
+        <!--mainView-->
+        <scene sceneID="kc7-90-dQ1">
+            <objects>
+                <viewController storyboardIdentifier="mainView" title="mainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ohE-XJ-SpR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L8y-yY-GHS"/>
+                        <viewControllerLayoutGuide type="bottom" id="xFl-ko-hu5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZiJ-cb-sDe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ViV-oR-xsu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2065" y="38"/>
         </scene>
     </scenes>
 </document>
