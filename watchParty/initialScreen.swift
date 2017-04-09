@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  initialScreen.swift
 //  watchParty
 //
 //  Created by Matt Briselli on 4/9/17.
@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import CoreData
+import Firebase
+import FirebaseAuth
+import FacebookCore
+import FacebookLogin
+import FacebookShare
+import SocketIO
 
 class ViewController: UIViewController {
 
