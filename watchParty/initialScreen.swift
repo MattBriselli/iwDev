@@ -89,7 +89,7 @@ class ViewController: UIViewController {
                     }
                 }
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainViewController = storyBoard.instantiateViewController(withIdentifier: "MainView")
+                let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
                 self.present(mainViewController, animated:true, completion:nil)
             }
         }
