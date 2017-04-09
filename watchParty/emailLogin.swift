@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class emailLogin: UIViewController {
     
@@ -20,6 +21,26 @@ class emailLogin: UIViewController {
         
     }
     @IBAction func emailLogin(_ sender: Any) {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Person", in: managedContext)!
+        let person = NSManagedObject(entity: entity,
+                                     insertInto: managedContext)
+        
+        person.setValue(email.text, forKeyPath: "username")
+        person.setValue(pword.text, forKeyPath: "password")
+        
+        do {
+            try managedContext.save()
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
+            self.present(mainViewController, animated:true, completion:nil)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 }

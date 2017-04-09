@@ -33,13 +33,13 @@ class ViewController: UIViewController {
             
             emailLogin.layer.cornerRadius = 10;
             emailLogin.center.x = view.center.x
-            emailLogin.center.y = view.center.y * 0.75
+            emailLogin.center.y = view.center.y * 0.85
             fbLogin.layer.cornerRadius = 10;
             fbLogin.center.x = view.center.x
             fbLogin.center.y = view.center.y
             emailSignUp.layer.cornerRadius = 10;
             emailSignUp.center.x = view.center.x
-            emailSignUp.center.y = view.center.y * 1.25
+            emailSignUp.center.y = view.center.y * 1.15
             
         }
         
