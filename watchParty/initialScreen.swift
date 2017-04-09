@@ -27,19 +27,7 @@ class ViewController: UIViewController {
         if (loggedIn()) {
             
         } else {
-            wpTitle.center.x = view.center.x
-            wpTitle.center.y = view.center.y * 0.25
-            
-            emailLogin.layer.cornerRadius = 10;
-            emailLogin.center.x = view.center.x
-            emailLogin.center.y = view.center.y * 0.85
-            fbLogin.layer.cornerRadius = 10;
-            fbLogin.center.x = view.center.x
-            fbLogin.center.y = view.center.y
-            emailSignUp.layer.cornerRadius = 10;
-            emailSignUp.center.x = view.center.x
-            emailSignUp.center.y = view.center.y * 1.15
-            
+            stylings()
         }
         
     }
@@ -56,7 +44,7 @@ class ViewController: UIViewController {
         
         do {
             let people = try managedContext.fetch(fetchRequest)
-            if (people.count == 1) {
+            if (people.count != 0) {
                 print (people[0].value(forKey: "username"), people[0].value(forKey: "password"))
                 return true
             } else {
@@ -92,6 +80,21 @@ class ViewController: UIViewController {
                 self.present(mainViewController, animated:true, completion:nil)
             }
         }
+    }
+    
+    func stylings() {
+        wpTitle.center.x = view.center.x
+        wpTitle.center.y = view.center.y * 0.25
+        
+        emailLogin.layer.cornerRadius = 10;
+        emailLogin.center.x = view.center.x
+        emailLogin.center.y = view.center.y * 0.85
+        fbLogin.layer.cornerRadius = 10;
+        fbLogin.center.x = view.center.x
+        fbLogin.center.y = view.center.y
+        emailSignUp.layer.cornerRadius = 10;
+        emailSignUp.center.x = view.center.x
+        emailSignUp.center.y = view.center.y * 1.15
     }
     
     override func didReceiveMemoryWarning() {

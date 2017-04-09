@@ -22,6 +22,7 @@ class emailLogin: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        stylings()
     }
 
     @IBAction func emailLogin(_ sender: Any) {
@@ -83,5 +84,16 @@ class emailLogin: UIViewController {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+    }
+    func stylings() {
+        self.watchParty.center.x = view.center.x
+        self.watchParty.center.y = view.center.y * 0.25
+        self.email.center.x = view.center.x
+        self.email.center.y = view.center.y * 0.9
+        self.pword.center.x = view.center.x
+        self.pword.center.y = view.center.y
+        self.login.layer.cornerRadius = 10;
+        self.login.center.x = view.center.x
+        self.login.center.y = view.center.y * 1.15
     }
 }
