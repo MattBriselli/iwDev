@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1ADD441E9D43E900950A34 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C1ADD431E9D43E900950A34 /* UserInfo.plist */; };
+		0C1ADD481E9D466D00950A34 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1ADD451E9D466C00950A34 /* FBSDKCoreKit.framework */; };
+		0C1ADD491E9D466D00950A34 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1ADD461E9D466D00950A34 /* FBSDKLoginKit.framework */; };
+		0C1ADD4A1E9D466D00950A34 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1ADD471E9D466D00950A34 /* FBSDKShareKit.framework */; };
 		0C1EC63B1E9A946C0002F3D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1EC63A1E9A946C0002F3D0 /* AppDelegate.swift */; };
 		0C1EC63D1E9A946C0002F3D0 /* initialScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1EC63C1E9A946C0002F3D0 /* initialScreen.swift */; };
 		0C1EC6401E9A946C0002F3D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1EC63E1E9A946C0002F3D0 /* Main.storyboard */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C1ADD431E9D43E900950A34 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
+		0C1ADD451E9D466C00950A34 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/watchParty-brxfjphztzckwvdamksfpzkcyvzo/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		0C1ADD461E9D466D00950A34 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/watchParty-brxfjphztzckwvdamksfpzkcyvzo/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		0C1ADD471E9D466D00950A34 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/watchParty-brxfjphztzckwvdamksfpzkcyvzo/Build/Products/Debug-iphoneos/FBSDKShareKit/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		0C1EC6371E9A946C0002F3D0 /* watchParty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchParty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C1EC63A1E9A946C0002F3D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C1EC63C1E9A946C0002F3D0 /* initialScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initialScreen.swift; sourceTree = "<group>"; };
@@ -43,6 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C1ADD481E9D466D00950A34 /* FBSDKCoreKit.framework in Frameworks */,
+				0C1ADD491E9D466D00950A34 /* FBSDKLoginKit.framework in Frameworks */,
+				0C1ADD4A1E9D466D00950A34 /* FBSDKShareKit.framework in Frameworks */,
 				82D19C8019ABC7407B18F02E /* Pods_watchParty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +91,7 @@
 				0C1EC6441E9A946C0002F3D0 /* Assets.xcassets */,
 				0C1EC64F1E9A96340002F3D0 /* GoogleService-Info.plist */,
 				0C1EC6461E9A946C0002F3D0 /* LaunchScreen.storyboard */,
+				0C1ADD431E9D43E900950A34 /* UserInfo.plist */,
 				0C1EC6491E9A946C0002F3D0 /* Info.plist */,
 				0C1EC6411E9A946C0002F3D0 /* watchParty.xcdatamodeld */,
 			);
@@ -89,6 +101,9 @@
 		ADEAF63306402F89F99A1F1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0C1ADD451E9D466C00950A34 /* FBSDKCoreKit.framework */,
+				0C1ADD461E9D466D00950A34 /* FBSDKLoginKit.framework */,
+				0C1ADD471E9D466D00950A34 /* FBSDKShareKit.framework */,
 				42655EEC83821095FC2DF1F4 /* Pods_watchParty.framework */,
 			);
 			name = Frameworks;
@@ -174,6 +189,7 @@
 				0C1EC6481E9A946C0002F3D0 /* LaunchScreen.storyboard in Resources */,
 				0C1EC6501E9A96340002F3D0 /* GoogleService-Info.plist in Resources */,
 				0C1EC6451E9A946C0002F3D0 /* Assets.xcassets in Resources */,
+				0C1ADD441E9D43E900950A34 /* UserInfo.plist in Resources */,
 				0C1EC6401E9A946C0002F3D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

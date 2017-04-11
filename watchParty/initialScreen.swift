@@ -13,8 +13,13 @@ import FirebaseAuth
 import FacebookCore
 import FacebookLogin
 import FacebookShare
+import FBSDKLoginKit
+import FBSDKShareKit
+import FBSDKCoreKit
 
 class ViewController: UIViewController {
+    
+//    static private var pList: CFPropertyList
 
     @IBOutlet var wpTitle: UILabel!
     @IBOutlet var emailLogin: UIButton!
@@ -26,6 +31,16 @@ class ViewController: UIViewController {
         
         stylings()
         
+//        UserProfile.pLis
+        
+        
+        if let accessToken = FBSDKAccessToken.current() {
+            print("\n\n\n\n")
+            print(accessToken)
+        } else {
+            print("\n\n\n\nNO")
+        }
+        
         if let accessToken = AccessToken.current {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
@@ -34,7 +49,7 @@ class ViewController: UIViewController {
         
         if (loggedIn()) {
             let loginManager = LoginManager()
-            loginManager.loginBehavior = LoginBehavior.systemAccount
+//            loginManager.loginBehavior = LoginBehavior.web
             loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
                 switch loginResult {
                 case .failed(let error):
@@ -88,7 +103,7 @@ class ViewController: UIViewController {
 
     @IBAction func FBLogin(_ sender: Any) {
         let loginManager = LoginManager()
-        loginManager.loginBehavior = LoginBehavior.systemAccount
+//        loginManager.loginBehavior = LoginBehavior.web
         loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
