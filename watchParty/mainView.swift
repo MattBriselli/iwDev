@@ -8,11 +8,18 @@
 
 import Foundation
 import UIKit
+import FacebookCore
+import FacebookLogin
+import SocketIO
 
 class mainView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let accessToken = AccessToken.current {
+            print(accessToken)
+        }
         
     }
 

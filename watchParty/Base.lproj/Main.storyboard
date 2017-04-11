@@ -61,6 +61,7 @@
                     <connections>
                         <outlet property="emailLogin" destination="27j-Ey-xof" id="ql3-DZ-HFm"/>
                         <outlet property="emailSignUp" destination="9jG-75-vIt" id="Feh-ls-uGJ"/>
+                        <outlet property="fbLogin" destination="xnQ-RX-B4j" id="TPZ-p4-M9i"/>
                         <outlet property="wpTitle" destination="2cw-4Q-PBy" id="iEN-Bn-wg5"/>
                     </connections>
                 </viewController>

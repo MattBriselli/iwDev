@@ -39,7 +39,6 @@ class ViewController: UIViewController {
     }
     
     func loggedIn() -> Bool {
-        
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
                 print("error")
@@ -51,8 +50,8 @@ class ViewController: UIViewController {
         
         do {
             let people = try managedContext.fetch(fetchRequest)
-            print(people.count)
-            if (people.count == 0) {
+            print(people.count, people)
+            if (people.count != 0) {
                 return true
             } else {
                 return false
@@ -77,31 +76,54 @@ class ViewController: UIViewController {
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
                 FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                     if let error = error {
-                        print("error 2")
+                        print("error 2\(error)")
                     }
                 }
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
-                self.present(mainViewController, animated:true, completion:nil)
+                
+                self.storeUser(token: accessToken.authenticationToken)
                 
             }
+            
         }
     }
     
+    func storeUser(token: String) {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Person", in: managedContext)!
+        let person = NSManagedObject(entity: entity,
+                                     insertInto: managedContext)
+        
+        person.setValue(token, forKeyPath: "credential")
+        person.setValue("FB", forKeyPath: "method")
+        
+        do {
+            try managedContext.save()
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
+            self.present(mainViewController, animated:true, completion:nil)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
     
     func stylings() {
-        wpTitle.center.x = view.center.x
-        wpTitle.center.y = view.center.y * 0.25
+        self.wpTitle.center.x = view.center.x
+        self.wpTitle.center.y = view.center.y * 0.25
         
-        emailLogin.layer.cornerRadius = 10;
-        emailLogin.center.x = view.center.x
-        emailLogin.center.y = view.center.y * 0.85
-        fbLogin.layer.cornerRadius = 10;
-        fbLogin.center.x = view.center.x
-        fbLogin.center.y = view.center.y
-        emailSignUp.layer.cornerRadius = 10;
-        emailSignUp.center.x = view.center.x
-        emailSignUp.center.y = view.center.y * 1.15
+        self.emailLogin.layer.cornerRadius = 10
+        self.emailLogin.center.x = view.center.x
+        self.emailLogin.center.y = view.center.y * 0.85
+        self.fbLogin.layer.cornerRadius = 10
+        self.fbLogin.center.x = view.center.x
+        self.fbLogin.center.y = view.center.y
+        self.emailSignUp.layer.cornerRadius = 10
+        self.emailSignUp.center.x = view.center.x
+        self.emailSignUp.center.y = view.center.y * 1.15
     }
     
     override func didReceiveMemoryWarning() {
