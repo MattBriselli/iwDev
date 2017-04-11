@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         FIRApp.configure()
         
+        stylings()
+        
         if let accessToken = AccessToken.current {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
@@ -31,9 +33,30 @@ class ViewController: UIViewController {
         }
         
         if (loggedIn()) {
-
-        } else {
-            stylings()
+            let loginManager = LoginManager()
+            loginManager.loginBehavior = LoginBehavior.systemAccount
+            loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
+                switch loginResult {
+                case .failed(let error):
+                    print(error)
+                case .cancelled:
+                    print("User cancelled login.")
+                case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
+                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                        if let error = error {
+                            print("error 2\(error)")
+                        }
+                    }
+                    
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
+                    self.present(mainViewController, animated:true, completion:nil)
+                    
+                }
+                
+            }
+            
         }
         
     }
