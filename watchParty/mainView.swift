@@ -12,7 +12,7 @@ import FacebookCore
 import FacebookLogin
 import SocketIO
 
-class mainView: UIViewController {
+class mainView: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

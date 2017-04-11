@@ -195,39 +195,61 @@
             </objects>
             <point key="canvasLocation" x="1245.5999999999999" y="374.66266866566718"/>
         </scene>
-        <!--mainView-->
-        <scene sceneID="kc7-90-dQ1">
+        <!--Item 2-->
+        <scene sceneID="yyz-yP-7eJ">
             <objects>
-                <viewController storyboardIdentifier="mainView" title="mainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ohE-XJ-SpR" customClass="mainView" customModule="watchParty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="f38-yC-a32" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L8y-yY-GHS"/>
-                        <viewControllerLayoutGuide type="bottom" id="xFl-ko-hu5"/>
+                        <viewControllerLayoutGuide type="top" id="pOt-s9-8yP"/>
+                        <viewControllerLayoutGuide type="bottom" id="tIx-kv-pkT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZiJ-cb-sDe">
+                    <view key="view" contentMode="scaleToFill" id="5dR-BU-23m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Watch Party" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-2L-y13">
-                                <rect key="frame" x="68" y="98" width="246" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="0.080562569200000003" green="0.112105228" blue="0.33247983460000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwe-kN-8ME">
-                                <rect key="frame" x="68" y="174" width="246" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="0.080562569200000003" green="0.112105228" blue="0.33247983460000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.71741145849227905" green="0.90220195055007935" blue="0.93740695714950562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="A87-Xo-2kv"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ViV-oR-xsu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qCz-Zs-47g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2064.8000000000002" y="37.331334332833585"/>
+            <point key="canvasLocation" x="3110" y="365"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="N1F-6L-rdB">
+            <objects>
+                <viewController id="Pbu-J6-wPv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pLi-8o-sQC"/>
+                        <viewControllerLayoutGuide type="bottom" id="iLu-jA-Uso"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E6J-MQ-2y3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="Thw-bR-Sbj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tCF-8T-oVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3110" y="-289"/>
+        </scene>
+        <!--Main View-->
+        <scene sceneID="t0W-QG-VSX">
+            <objects>
+                <tabBarController storyboardIdentifier="mainView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O9m-ra-iNI" customClass="mainView" customModule="watchParty" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Jpf-2H-8Of">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Pbu-J6-wPv" kind="relationship" relationship="viewControllers" id="5X0-Qc-tYr"/>
+                        <segue destination="f38-yC-a32" kind="relationship" relationship="viewControllers" id="rRC-BF-0NY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mcV-wp-W9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2158" y="38"/>
         </scene>
     </scenes>
 </document>
