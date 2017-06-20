@@ -103,7 +103,7 @@ class ViewController: UIViewController {
 
     @IBAction func FBLogin(_ sender: Any) {
         let loginManager = LoginManager()
-//        loginManager.loginBehavior = LoginBehavior.web
+        loginManager.loginBehavior = LoginBehavior.systemAccount
         loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
