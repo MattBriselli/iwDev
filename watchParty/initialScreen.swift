@@ -10,10 +10,6 @@ import UIKit
 import CoreData
 import Firebase
 import FirebaseAuth
-import FacebookCore
-import FacebookLogin
-import FBSDKLoginKit
-import FBSDKCoreKit
 
 class ViewController: UIViewController {
     
@@ -21,57 +17,12 @@ class ViewController: UIViewController {
 
     @IBOutlet var wpTitle: UILabel!
     @IBOutlet var emailLogin: UIButton!
-    @IBOutlet var fbLogin: UIButton!
     @IBOutlet var emailSignUp: UIButton!
     
     override func viewDidLoad() {
         FirebaseApp.configure()
         
         stylings()
-        
-//        UserProfile.pLis
-        
-        
-        if let accessToken = FBSDKAccessToken.current() {
-            print("\n\n\n\n")
-            print(accessToken)
-        } else {
-            print("\n\n\n\nNO")
-        }
-        
-        if let accessToken = AccessToken.current {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
-            self.present(mainViewController, animated:true, completion:nil)
-        }
-        
-        if (loggedIn()) {
-            let loginManager = LoginManager()
-//            loginManager.loginBehavior = LoginBehavior.web
-            loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
-                switch loginResult {
-                case .failed(let error):
-                    print(error)
-                case .cancelled:
-                    print("User cancelled login.")
-                case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                    let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
-                    Auth.auth().signIn(with: credential) { (user, error) in
-                        if let error = error {
-                            print("error 2\(error)")
-                        }
-                    }
-                    
-                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    let mainViewController = storyBoard.instantiateViewController(withIdentifier: "mainView")
-                    self.present(mainViewController, animated:true, completion:nil)
-                    
-                }
-                
-            }
-            
-        }
-        
     }
     
     func loggedIn() -> Bool {
@@ -95,31 +46,6 @@ class ViewController: UIViewController {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
             return false
-        }
-    }
-    
-
-    @IBAction func FBLogin(_ sender: Any) {
-        let loginManager = LoginManager()
-        loginManager.loginBehavior = LoginBehavior.systemAccount
-        loginManager.logIn([ .publicProfile, .email, .userFriends ], viewController: self) { loginResult in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
-                Auth.auth().signIn(with: credential) { (user, error) in
-                    if let error = error {
-                        print("error 2\(error)")
-                    }
-                }
-                
-                self.storeUser(token: accessToken.authenticationToken)
-                
-            }
-            
         }
     }
     
@@ -150,16 +76,12 @@ class ViewController: UIViewController {
     func stylings() {
         self.wpTitle.center.x = view.center.x
         self.wpTitle.center.y = view.center.y * 0.25
-        
         self.emailLogin.layer.cornerRadius = 10
         self.emailLogin.center.x = view.center.x
         self.emailLogin.center.y = view.center.y * 0.85
-        self.fbLogin.layer.cornerRadius = 10
-        self.fbLogin.center.x = view.center.x
-        self.fbLogin.center.y = view.center.y
         self.emailSignUp.layer.cornerRadius = 10
         self.emailSignUp.center.x = view.center.x
-        self.emailSignUp.center.y = view.center.y * 1.15
+        self.emailSignUp.center.y = view.center.y
     }
     
     override func didReceiveMemoryWarning() {

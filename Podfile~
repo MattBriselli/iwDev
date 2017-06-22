@@ -10,8 +10,8 @@ target 'watchParty' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'SocketIO'
   pod 'FacebookCore'
   pod 'FacebookLogin'
-  pod 'SocketIO'
 
 end

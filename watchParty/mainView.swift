@@ -8,19 +8,11 @@
 
 import Foundation
 import UIKit
-import FacebookCore
-import FacebookLogin
 
 class mainView: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let accessToken = AccessToken.current {
-            print("\n\n\n")
-            print(accessToken)
-            print("\n\n\n")
-        }
     }
 
 }
