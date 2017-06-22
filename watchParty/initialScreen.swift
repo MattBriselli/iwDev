@@ -12,9 +12,7 @@ import Firebase
 import FirebaseAuth
 import FacebookCore
 import FacebookLogin
-import FacebookShare
 import FBSDKLoginKit
-import FBSDKShareKit
 import FBSDKCoreKit
 
 class ViewController: UIViewController {
