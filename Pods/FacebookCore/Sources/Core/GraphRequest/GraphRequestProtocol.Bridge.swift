@@ -22,8 +22,10 @@ import FBSDKCoreKit.FBSDKGraphRequest
 extension GraphRequestProtocol {
   internal var sdkRequest: FBSDKGraphRequest {
      // TODO: (nlutsenko) Consider constraining `parameters` for specific types aka create `GraphRequestParameterValue` protocol.
-    let sdkParameters: [String : Any]? = parameters?.keyValueMap({ key, value in
-      if let value = value as? GraphRequestDataAttachment {
+    let sdkParameters: [String : Any]? = parameters?.keyValueMap({ (arg) in
+        
+        let (key, value) = arg
+        if let value = value as? GraphRequestDataAttachment {
         return (key, value.sdkDataAttachment)
       }
       return (key, value)
