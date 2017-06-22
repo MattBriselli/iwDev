@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet var emailSignUp: UIButton!
     
     override func viewDidLoad() {
-        FIRApp.configure()
+        FirebaseApp.configure()
         
         stylings()
         
@@ -55,8 +55,8 @@ class ViewController: UIViewController {
                 case .cancelled:
                     print("User cancelled login.")
                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
-                    FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                    let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
+                    Auth.auth().signIn(with: credential) { (user, error) in
                         if let error = error {
                             print("error 2\(error)")
                         }
@@ -109,8 +109,8 @@ class ViewController: UIViewController {
             case .cancelled:
                 print("User cancelled login.")
             case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
-                FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
+                Auth.auth().signIn(with: credential) { (user, error) in
                     if let error = error {
                         print("error 2\(error)")
                     }

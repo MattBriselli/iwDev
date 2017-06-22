@@ -38,7 +38,7 @@ class emailLogin: UIViewController {
             
         } else {
             
-            FIRAuth.auth()?.createUser(withEmail: self.email.text!, password: self.pword.text!) { (user, error) in
+            Auth.auth().createUser(withEmail: self.email.text!, password: self.pword.text!) { (user, error) in
                 
                 if error == nil {
                     

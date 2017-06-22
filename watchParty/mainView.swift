@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import FacebookCore
 import FacebookLogin
-import SocketIO
 
 class mainView: UITabBarController {
     
@@ -22,17 +21,6 @@ class mainView: UITabBarController {
             print(accessToken)
             print("\n\n\n")
         }
-        
-        let socket = SocketIOClient.init(socketURL: URL.init(string: "https://koffee-e5c27.firebaseapp.com")!)
-        socket.on("connect") {data, ack in
-            print("\n\n\n")
-            print("socket connected")
-            print("\n\n\n")
-        }
-        
-        socket.connect()
-        
-        
     }
 
 }
